@@ -1,5 +1,43 @@
-# iPresence Tech Test 
+# Solving my iPresence Tech Test 
 
+## Solution (original brief below) 
+
+Configuration is done by the config file: 
+```
+config/conf.ini
+```
+Its parameters are:
+```
+data_file_name ... file name of the JSON data-file located in the root directory, including suffix
+max_returned_qotes ... integer value of maximum possible returned quotes per request
+base_uri ... base URI for the application, used in the unit-tests
+randomized_result ... yes/no ... if results should be randomized
+
+redis_scheme ... predis scheme settings
+redis_host ... predis host
+redis_port ... predis port
+
+message_method_not_allowed ... message shown if request method not allowed
+message_not_found ... message shown if author not found
+message_data_error ... message shown if data-file not found
+message_bad_request_author_name ... message shown if author's name contains not allowed characters
+message_bad_request_larger_limit ...  message shown if limit is set larger than allowed
+```
+## Runnin tests
+
+All tests are located in the /tests directory
+
+Running tests:
+```
+./vendor/bin/phpunit tests/
+```
+
+## Other than REST API usage
+
+You just need to bypass API layer (ApiRequest) and work directly with QuotesFeed class.
+
+
+## ORIGINAL BRIEF:
 
 
 We want you to implement a REST API that, given a famous person and a count N, returns N quotes from this famous person _shouted_ .
